@@ -8,6 +8,10 @@ namespace Assignment_01_EFC_.DbContexts
 {
     internal class ReadMoreBooksContext : DbContext
     {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Server=.;Database=ReadMoreBooksDB;Trusted_Connection=True;TrustServerCertificate=True;");
+        }
 
         public DbSet<Book> Books { get; set; } = null!;
 
